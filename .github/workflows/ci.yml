@@ -1,21 +1,21 @@
-name: "CI"
+name: 'CI'
 on:
   push:
     branches-ignore:
-      - "release/**"
-      - "docs"
+      - 'release/**'
+      - 'docs'
     tags-ignore:
-      - "**"
+      - '**'
     paths-ignore:
-      - ".github/**"
-      - "!.github/workflows/ci.yml"
-      - ".travis.yml"
-      - ".gitignore"
-      - "README.md"
-      - "LICENSE"
+      - '.github/**'
+      - '!.github/workflows/ci.yml'
+      - '.travis.yml'
+      - '.gitignore'
+      - 'README.md'
+      - 'LICENSE'
   pull_request:
     paths:
-      - "**"
+      - '**'
 
 jobs:
   build:
@@ -23,13 +23,13 @@ jobs:
 
     strategy:
       matrix:
-        ruby: [3.1.2]
+        ruby: [2.5, 2.6, 2.7, 3]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0 # for posts's lastmod
+          fetch-depth: 0  # for posts's lastmod
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
