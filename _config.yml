@@ -9,12 +9,12 @@ theme: jekyll-theme-chirpy
 lang: ko-KR
 
 # Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
-timezone: Asia/Seoul
+timezone: Asia/Tokyo
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Engineer-Park # the main title
+title: Park-Labo # the main title
 
 tagline: 개발자의 기술 블로그 # it will display as the subtitle
 
@@ -27,7 +27,7 @@ description: >- # used by seo meta and the atom feed
 url: "https://parklabo.github.io"
 
 github:
-  username: engineer-park # change to your GitHub username
+  username: parklabo # change to your GitHub username
 
 twitter:
   username: YoungsuPark6 # change to your Twitter username
@@ -40,10 +40,8 @@ social:
   links:
     # The first element serves as the copyright owner's link
     - https://twitter.com/YoungsuPark6 # change to your Twitter homepage
-    - https://github.com/engineer-park # change to your GitHub homepage
-    # Uncomment below to add more social links
-    # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
+    - https://github.com/parklabo # change to your GitHub homepage
+
 
 # Site Verification Settings
 webmaster_verifications:
