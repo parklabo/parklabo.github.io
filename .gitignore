@@ -7,3 +7,23 @@ vendor/cache/
 vendor/gems/
 vendor/ruby/
 CLAUDE.md
+
+# 민감한 정보
+.env
+.env.local
+_drafts/private/
+config/secrets.yml
+*.pem
+*.key
+
+# 개인 파일
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# 백업 파일
+*.backup
+backup/
