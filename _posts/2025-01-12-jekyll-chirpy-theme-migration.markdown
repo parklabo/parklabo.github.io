@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Jekyll 블로그를 Chirpy 테마로 전환하기: 완벽 가이드"
-date: 2025-01-12 20:00:00 +0900
+date: 2025-07-12 20:00:00 +0900
 categories: [Blog, Jekyll]
 tags: [jekyll, chirpy, github-pages, blog, tutorial]
 image:
