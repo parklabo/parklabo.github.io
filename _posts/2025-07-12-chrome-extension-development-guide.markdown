@@ -5,7 +5,7 @@ date: 2025-07-12 21:00:00 +0900
 categories: [Development, Chrome Extension]
 tags: [chrome-extension, javascript, webstore, chatgpt, tutorial]
 image:
-  path: /assets/img/posts/chrome-extension-banner.png
+  path: /assets/img/posts/chrome-extension-development-guide.png
   alt: Chrome Extension Development
 ---
 
