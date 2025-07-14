@@ -168,7 +168,7 @@ GitHub 계정을 만들고 프로필을 설정하는 것은 개발자로서의 �
 
 ## 시리즈 목차
 1. **GitHub 시작하기** (현재 글)
-2. Repository 기초 (예정)
+2. [Repository 기초](/posts/github-series-02-repository-basics/)
 3. Git 기본 명령어 (예정)
 4. Branch와 Merge (예정)
 5. Fork와 Pull Request (예정)
