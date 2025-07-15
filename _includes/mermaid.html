@@ -1,0 +1,42 @@
+{% if page.mermaid %}
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    mermaid.initialize({ 
+      startOnLoad: true,
+      theme: document.documentElement.getAttribute('data-mode') === 'dark' ? 'dark' : 'default'
+    });
+    
+    // Convert all code blocks with language-mermaid class
+    document.querySelectorAll('.language-mermaid').forEach(function(element) {
+      // Get the code content
+      let code = element.textContent;
+      
+      // Create a new div for mermaid
+      let mermaidDiv = document.createElement('div');
+      mermaidDiv.className = 'mermaid';
+      mermaidDiv.textContent = code;
+      
+      // Replace the pre element with the mermaid div
+      let preElement = element.parentElement;
+      preElement.parentElement.replaceChild(mermaidDiv, preElement);
+    });
+    
+    // Re-render mermaid
+    mermaid.init();
+  });
+  
+  // Handle theme changes
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'data-mode') {
+        const newTheme = document.documentElement.getAttribute('data-mode') === 'dark' ? 'dark' : 'default';
+        mermaid.initialize({ theme: newTheme });
+        mermaid.init();
+      }
+    });
+  });
+  
+  observer.observe(document.documentElement, { attributes: true });
+</script>
+{% endif %}
