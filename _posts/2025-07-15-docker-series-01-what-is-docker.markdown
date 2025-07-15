@@ -3,6 +3,7 @@ layout: post
 title: "Docker 입문 시리즈 1편 - Docker란 무엇인가?"
 date: 2025-07-15 10:00:00 +0900
 categories: [Docker, DevOps, 입문]
+mermaid: true
 ---
 
 Docker는 개발자들 사이에서 가장 인기 있는 컨테이너 기술 중 하나입니다. 이번 시리즈에서는 Docker를 처음 접하는 분들을 위해 기초부터 차근차근 알아보겠습니다.
