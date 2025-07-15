@@ -21,6 +21,22 @@ Docker는 개발자들 사이에서 가장 인기 있는 컨테이너 기술 중
 
 Docker는 **컨테이너 기반의 오픈소스 가상화 플랫폼**입니다. 쉽게 말해, 애플리케이션과 그 애플리케이션이 실행되는 데 필요한 모든 것(코드, 런타임, 시스템 도구, 라이브러리 등)을 하나의 패키지로 만들어주는 도구입니다.
 
+```mermaid
+flowchart LR
+    A[애플리케이션 코드] --> D[Docker Container]
+    B[라이브러리/의존성] --> D
+    C[환경 설정] --> D
+    D --> E[어디서든 실행 가능!]
+    
+    E --> F[개발자 노트북]
+    E --> G[테스트 서버]
+    E --> H[프로덕션 서버]
+    E --> I[클라우드]
+    
+    style D fill:#bbf,stroke:#333,stroke-width:4px
+    style E fill:#bfb,stroke:#333,stroke-width:2px
+```
+
 ### 컨테이너(Container)란?
 
 컨테이너는 애플리케이션을 실행하기 위한 격리된 환경입니다. 마치 화물 컨테이너처럼:
@@ -33,53 +49,147 @@ Docker는 **컨테이너 기반의 오픈소스 가상화 플랫폼**입니다. 
 
 Docker를 이해하기 위해 가상머신과 비교해보겠습니다:
 
-### 가상머신 (Virtual Machine)
-- 하드웨어를 가상화합니다
-- 각 VM마다 운영체제 전체를 포함합니다
-- 무겁고 시작 시간이 오래 걸립니다 (수 분)
-- 많은 리소스를 사용합니다 (수 GB)
+```mermaid
+graph TB
+    subgraph "가상머신 아키텍처"
+        A[하드웨어] --> B[하이퍼바이저]
+        B --> C[Guest OS 1]
+        B --> D[Guest OS 2]
+        B --> E[Guest OS 3]
+        C --> F[App 1]
+        D --> G[App 2]
+        E --> H[App 3]
+    end
+    
+    subgraph "Docker 아키텍처"
+        I[하드웨어] --> J[Host OS]
+        J --> K[Docker Engine]
+        K --> L[Container 1<br/>App 1]
+        K --> M[Container 2<br/>App 2]
+        K --> N[Container 3<br/>App 3]
+    end
+```
 
-### Docker 컨테이너
-- 운영체제 수준에서 가상화합니다
-- 호스트 OS의 커널을 공유합니다
-- 가볍고 시작 시간이 빠릅니다 (수 초)
-- 적은 리소스를 사용합니다 (수십 MB)
+### 상세 비교표
+
+| 특징 | 가상머신 (VM) | Docker 컨테이너 |
+|------|---------------|-----------------|
+| **가상화 수준** | 하드웨어 수준 가상화 | OS 수준 가상화 |
+| **Guest OS** | 각 VM마다 전체 OS 필요 | Host OS 커널 공유 |
+| **시작 시간** | 수 분 | 수 초 |
+| **크기** | 수 GB | 수십 MB |
+| **성능** | 오버헤드 높음 | 네이티브에 가까운 성능 |
+| **격리 수준** | 완전한 격리 | 프로세스 수준 격리 |
+| **리소스 사용** | 높음 | 낮음 |
+| **이식성** | 제한적 | 매우 높음 |
 
 ## Docker의 주요 구성 요소
 
-### 1. Docker 이미지 (Image)
-- 컨테이너를 만들기 위한 **읽기 전용 템플릿**입니다
-- 애플리케이션과 필요한 모든 의존성을 포함합니다
-- 레이어 구조로 되어 있어 효율적입니다
+```mermaid
+graph LR
+    A[Dockerfile] -->|build| B[Docker Image]
+    B -->|run| C[Docker Container]
+    B -->|push| D[Docker Hub/Registry]
+    D -->|pull| B
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px
+    style C fill:#bfb,stroke:#333,stroke-width:2px
+    style D fill:#fbf,stroke:#333,stroke-width:2px
+```
 
-### 2. Docker 컨테이너 (Container)
-- 이미지를 실행한 **인스턴스**입니다
-- 실제로 애플리케이션이 동작하는 곳입니다
-- 생성, 시작, 중지, 삭제가 가능합니다
+### Docker 구성 요소 설명
 
-### 3. Docker Hub
-- Docker 이미지를 저장하고 공유하는 **클라우드 저장소**입니다
-- GitHub과 비슷한 역할을 합니다
-- 공식 이미지와 커뮤니티 이미지를 찾을 수 있습니다
+| 구성 요소 | 설명 | 주요 특징 |
+|-----------|------|----------|
+| **Docker Image** | 컨테이너 실행을 위한 읽기 전용 템플릿 | • 레이어 구조<br>• 재사용 가능<br>• 버전 관리 |
+| **Docker Container** | 이미지를 실행한 인스턴스 | • 격리된 프로세스<br>• 상태 저장<br>• 생명주기 관리 |
+| **Docker Hub** | 이미지 저장소 (클라우드) | • 공식 이미지<br>• 커뮤니티 이미지<br>• Private 저장소 |
+| **Dockerfile** | 이미지 빌드 설정 파일 | • 텍스트 기반<br>• 버전 관리 가능<br>• 자동화 |
 
-### 4. Dockerfile
-- Docker 이미지를 만들기 위한 **설정 파일**입니다
-- 이미지 생성 과정을 코드로 관리할 수 있습니다
+### Docker 이미지 레이어 구조
+
+```mermaid
+graph TD
+    subgraph "Docker Image Layers"
+        A[Base OS Layer] --> B[Dependencies Layer]
+        B --> C[Application Layer]
+        C --> D[Config Layer]
+    end
+    
+    E[Container Layer<br/>읽기/쓰기 가능] -.-> D
+    
+    style A fill:#ffd,stroke:#333,stroke-width:2px
+    style B fill:#dfd,stroke:#333,stroke-width:2px
+    style C fill:#ddf,stroke:#333,stroke-width:2px
+    style D fill:#fdd,stroke:#333,stroke-width:2px
+    style E fill:#fff,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
+```
 
 ## Docker의 장점
 
-1. **일관된 환경**: 개발, 테스트, 프로덕션 환경을 동일하게 유지할 수 있습니다
-2. **빠른 배포**: 컨테이너는 빠르게 시작하고 중지할 수 있습니다
-3. **효율적인 리소스 사용**: VM보다 훨씬 적은 리소스를 사용합니다
-4. **확장성**: 필요에 따라 컨테이너를 쉽게 늘리거나 줄일 수 있습니다
-5. **이식성**: 어떤 환경에서든 동일하게 동작합니다
+```mermaid
+mindmap
+  root((Docker 장점))
+    환경
+      일관된 환경
+      개발/운영 동일
+      환경 설정 자동화
+    성능
+      빠른 시작
+      경량화
+      효율적 리소스
+    배포
+      빠른 배포
+      롤백 용이
+      버전 관리
+    확장성
+      수평 확장
+      마이크로서비스
+      오케스트레이션
+```
+
+### Docker 도입 효과
+
+| 영역 | 기존 방식 | Docker 사용 시 | 개선 효과 |
+|------|-----------|----------------|-----------|
+| **환경 구성** | 수동 설정, 문서화 필요 | Dockerfile로 자동화 | 80% 시간 단축 |
+| **배포 시간** | 30분~1시간 | 1~5분 | 90% 단축 |
+| **리소스 사용** | VM당 1~2GB RAM | 컨테이너당 100~200MB | 80% 절약 |
+| **확장성** | 수동 서버 추가 | 자동 스케일링 | 즉시 대응 |
+| **일관성** | 환경별 차이 발생 | 완전히 동일 | 100% 일관성 |
 
 ## Docker 사용 사례
 
-- **마이크로서비스 아키텍처**: 각 서비스를 독립적인 컨테이너로 운영
-- **CI/CD 파이프라인**: 일관된 빌드와 배포 환경 구축
-- **개발 환경 표준화**: 팀원 모두가 동일한 개발 환경 사용
-- **애플리케이션 격리**: 여러 애플리케이션을 한 서버에서 안전하게 실행
+```mermaid
+graph TD
+    subgraph "마이크로서비스 아키텍처"
+        A[API Gateway] --> B[User Service]
+        A --> C[Order Service]
+        A --> D[Payment Service]
+        B --> E[(User DB)]
+        C --> F[(Order DB)]
+        D --> G[(Payment DB)]
+    end
+    
+    subgraph "CI/CD 파이프라인"
+        H[Code Push] --> I[Build]
+        I --> J[Test]
+        J --> K[Deploy]
+    end
+    
+    style A fill:#f96,stroke:#333,stroke-width:2px
+    style H fill:#9f6,stroke:#333,stroke-width:2px
+```
+
+### 실제 활용 예시
+
+| 사용 사례 | 설명 | 주요 이점 |
+|-----------|------|----------|
+| **마이크로서비스** | 각 서비스를 독립 컨테이너로 운영 | • 독립적 배포<br>• 기술 스택 자유<br>• 장애 격리 |
+| **CI/CD** | 빌드/테스트/배포 자동화 | • 일관된 환경<br>• 빠른 피드백<br>• 자동화 |
+| **개발 환경** | 로컬 개발 환경 표준화 | • 빠른 온보딩<br>• 환경 일치<br>• 쉬운 공유 |
+| **테스트 환경** | 격리된 테스트 환경 제공 | • 병렬 테스트<br>• 깨끗한 환경<br>• 재현 가능 |
 
 ## 마무리
 
