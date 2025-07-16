@@ -3,6 +3,7 @@ layout: post
 title: "[Claude 입문 #1] Claude 소개와 플랜 선택 가이드"
 date: 2025-07-16 10:00:00 +0900
 categories: [AI, Claude, Tutorial]
+mermaid: true
 ---
 
 ## Claude란 무엇인가?
