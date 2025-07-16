@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Docker 입문 시리즈 1편 - Docker란 무엇인가?"
+title: "[Docker 입문 #1] Docker란 무엇인가?"
 date: 2025-07-15 10:00:00 +0900
 categories: [Docker, DevOps, 입문]
 mermaid: true
