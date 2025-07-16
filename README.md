@@ -4,7 +4,7 @@
 [![Jekyll](https://img.shields.io/badge/Jekyll-4.3.4-blue)](https://jekyllrb.com/)
 [![Theme](https://img.shields.io/badge/Theme-Chirpy-brightgreen)](https://github.com/cotes2020/jekyll-theme-chirpy)
 
-개발자 박영수의 기술 블로그입니다.
+개발자 YonYonWare의 기술 블로그입니다.
 
 🔗 **블로그 주소**: [https://parklabo.github.io](https://parklabo.github.io)
 
@@ -139,10 +139,6 @@ parklabo.github.io/
 └── .github/            # GitHub Actions 워크플로우
 ```
 
-## 🤝 기여하기
-
-이슈나 제안사항이 있으시면 [Issues](https://github.com/parklabo/parklabo.github.io/issues)에 등록해주세요.
-
 ## 📄 라이선스
 
 이 블로그의 콘텐츠는 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 라이선스를 따릅니다.
@@ -159,4 +155,4 @@ Jekyll과 Chirpy 테마는 각각의 라이선스를 따릅니다:
 
 ---
 
-Made with ❤️ by YonYon
+Made with ❤️ by YonYonWare
