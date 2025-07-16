@@ -155,7 +155,7 @@ paginate: 10
 baseurl: ""
 
 # Build settings
-future: true
+future: true  # Allow future dated posts
 
 # Plugins
 plugins:
