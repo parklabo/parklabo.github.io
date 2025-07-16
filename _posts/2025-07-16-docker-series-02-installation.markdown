@@ -2,7 +2,8 @@
 layout: post
 title: "[Docker 입문 #2] Docker 설치 및 환경 설정"
 date: 2025-07-16 10:00:00 +0900
-categories: [Docker, DevOps, 입문]
+categories: [Docker, DevOps, Beginner]
+tags: [docker, container, tutorial, series, installation, setup, docker-desktop]
 mermaid: true
 ---
 
