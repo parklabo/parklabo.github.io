@@ -2,7 +2,7 @@
 layout: post
 title: "[Claude 입문 #2] 첫 대화 시작하기 - 기본 사용법"
 date: 2025-07-17 10:00:00 +0900
-categories: [AI, Claude, Tutorial]
+categories: [AI, Claude]
 tags: [claude, ai, tutorial, series, getting-started, basic-usage, ai-assistant, beginner]
 mermaid: true
 ---
