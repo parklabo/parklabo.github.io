@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[GitHub 마스터하기 #4] Branch와 Merge: 효율적인 협업을 위한 브랜치 전략"
+title: "[GitHub 입문 #4] Branch와 Merge: 효율적인 협업을 위한 브랜치 전략"
 date: 2025-07-17 10:00:00 +0900
 categories: [GitHub, Tutorial]
 tags: [github, git, branch, merge, workflow, tutorial, series]
@@ -9,7 +9,7 @@ mermaid: true
 
 ## 들어가며
 
-GitHub 마스터하기 시리즈의 네 번째 시간입니다. 이번에는 Git의 강력한 기능인 브랜치(Branch)와 병합(Merge)에 대해 알아보겠습니다. 브랜치는 독립적인 작업 공간을 만들어 여러 기능을 동시에 개발할 수 있게 해주는 Git의 핵심 기능입니다.
+GitHub 입문 시리즈의 네 번째 시간입니다. 이번에는 Git의 강력한 기능인 브랜치(Branch)와 병합(Merge)에 대해 알아보겠습니다. 브랜치는 독립적인 작업 공간을 만들어 여러 기능을 동시에 개발할 수 있게 해주는 Git의 핵심 기능입니다.
 
 ## 1. Branch란 무엇인가?
 
