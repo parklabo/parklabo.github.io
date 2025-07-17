@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[GitHub 마스터하기 #1] GitHub 시작하기: 계정 생성부터 프로필 꾸미기까지"
+title: "[GitHub 입문 #1] GitHub 시작하기: 계정 생성부터 프로필 꾸미기까지"
 date: 2025-07-14 22:00:00 +0900
 categories: [GitHub, Tutorial]
 tags: [github, git, tutorial, series, beginner]
@@ -8,7 +8,7 @@ tags: [github, git, tutorial, series, beginner]
 
 ## 시리즈 소개
 
-"GitHub 마스터하기" 시리즈의 첫 번째 글입니다. 이 시리즈에서는 GitHub의 기초부터 고급 기능까지 단계별로 알아보겠습니다. 오늘은 GitHub 여정의 첫 걸음인 계정 생성과 프로필 설정에 대해 자세히 다뤄보겠습니다.
+"GitHub 입문" 시리즈의 첫 번째 글입니다. 이 시리즈에서는 GitHub의 기초부터 고급 기능까지 단계별로 알아보겠습니다. 오늘은 GitHub 여정의 첫 걸음인 계정 생성과 프로필 설정에 대해 자세히 다뤄보겠습니다.
 
 ## 1. GitHub이란?
 

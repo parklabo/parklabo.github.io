@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[GitHub 마스터하기 #2] Repository 기초: 생성, 클론, README 작성법"
+title: "[GitHub 입문 #2] Repository 기초: 생성, 클론, README 작성법"
 date: 2025-07-15 10:00:00 +0900
 categories: [GitHub, Tutorial]
 tags: [github, git, repository, readme, tutorial, series]
@@ -8,7 +8,7 @@ tags: [github, git, repository, readme, tutorial, series]
 
 ## 들어가며
 
-GitHub 마스터하기 시리즈의 두 번째 시간입니다. 이번에는 GitHub의 핵심인 Repository(저장소)에 대해 알아보겠습니다. Repository는 프로젝트의 모든 파일과 변경 이력을 저장하는 공간으로, GitHub 활동의 기본 단위입니다.
+GitHub 입문 시리즈의 두 번째 시간입니다. 이번에는 GitHub의 핵심인 Repository(저장소)에 대해 알아보겠습니다. Repository는 프로젝트의 모든 파일과 변경 이력을 저장하는 공간으로, GitHub 활동의 기본 단위입니다.
 
 ## 1. Repository란?
 
