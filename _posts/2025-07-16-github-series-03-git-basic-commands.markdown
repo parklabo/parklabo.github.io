@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[GitHub 마스터하기 #3] Git 기본 명령어: add, commit, push, pull 마스터하기"
+title: "[GitHub 입문 #3] Git 기본 명령어: add, commit, push, pull 익히기"
 date: 2025-07-16 10:00:00 +0900
 categories: [GitHub, Tutorial]
 tags: [github, git, commands, tutorial, series, version-control]
@@ -9,7 +9,7 @@ mermaid: true
 
 ## 들어가며
 
-GitHub 마스터하기 시리즈의 세 번째 시간입니다. 이번에는 Git의 핵심 명령어들을 실습과 함께 자세히 알아보겠습니다. 이 명령어들은 Git을 사용하는 데 있어 가장 기본이 되는 도구들입니다.
+GitHub 입문 시리즈의 세 번째 시간입니다. 이번에는 Git의 핵심 명령어들을 실습과 함께 자세히 알아보겠습니다. 이 명령어들은 Git을 사용하는 데 있어 가장 기본이 되는 도구들입니다.
 
 ## 1. Git의 작업 흐름 이해하기
 
