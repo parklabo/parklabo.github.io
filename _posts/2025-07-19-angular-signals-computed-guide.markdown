@@ -2,7 +2,7 @@
 layout: post
 title: "[Angular] Signal과 Computed 완벽 가이드: 반응형 프로그래밍의 새로운 패러다임"
 date: 2025-07-19 10:00:00 +0900
-categories: [Angular, Frontend]
+categories: [Frontend, Angular]
 tags: [angular, signals, computed, reactive-programming, state-management, typescript, frontend, tutorial]
 mermaid: true
 ---
