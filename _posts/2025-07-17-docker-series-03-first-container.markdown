@@ -2,7 +2,7 @@
 layout: post
 title: "[Docker 입문 #3] 첫 번째 컨테이너 실행하기"
 date: 2025-07-17 10:00:00 +0900
-categories: [Docker, DevOps]
+categories: [DevOps, Docker]
 tags: [docker, container, tutorial, series, docker-run, hello-world, docker-basics, beginner]
 mermaid: true
 ---

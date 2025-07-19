@@ -2,7 +2,7 @@
 layout: post
 title: "[GitHub 입문 #3] Git 기본 명령어: add, commit, push, pull 익히기"
 date: 2025-07-16 10:00:00 +0900
-categories: [GitHub, Tutorial]
+categories: [DevOps, GitHub]
 tags: [github, git, commands, tutorial, series, version-control]
 mermaid: true
 ---

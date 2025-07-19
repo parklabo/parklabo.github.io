@@ -2,7 +2,7 @@
 layout: post
 title: "[GitHub 입문 #6] Issues 활용법: 효율적인 프로젝트 관리와 소통"
 date: 2025-07-19 10:00:00 +0900
-categories: [GitHub, Tutorial]
+categories: [DevOps, GitHub]
 tags: [github, issues, project-management, labels, milestones, tutorial, series]
 mermaid: true
 ---

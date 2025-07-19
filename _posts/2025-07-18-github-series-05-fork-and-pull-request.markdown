@@ -2,7 +2,7 @@
 layout: post
 title: "[GitHub 입문 #5] Fork와 Pull Request: 오픈소스에 기여하는 방법"
 date: 2025-07-18 10:00:00 +0900
-categories: [GitHub, Tutorial]
+categories: [DevOps, GitHub]
 tags: [github, git, fork, pull-request, opensource, tutorial, series]
 mermaid: true
 ---

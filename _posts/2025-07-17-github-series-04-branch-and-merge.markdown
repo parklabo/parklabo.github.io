@@ -2,7 +2,7 @@
 layout: post
 title: "[GitHub 입문 #4] Branch와 Merge: 효율적인 협업을 위한 브랜치 전략"
 date: 2025-07-17 10:00:00 +0900
-categories: [GitHub, Tutorial]
+categories: [DevOps, GitHub]
 tags: [github, git, branch, merge, workflow, tutorial, series]
 mermaid: true
 ---

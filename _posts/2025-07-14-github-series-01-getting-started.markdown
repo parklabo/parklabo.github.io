@@ -2,7 +2,7 @@
 layout: post
 title: "[GitHub 입문 #1] GitHub 시작하기: 계정 생성부터 프로필 꾸미기까지"
 date: 2025-07-14 22:00:00 +0900
-categories: [GitHub, Tutorial]
+categories: [DevOps, GitHub]
 tags: [github, git, tutorial, series, beginner]
 ---
 

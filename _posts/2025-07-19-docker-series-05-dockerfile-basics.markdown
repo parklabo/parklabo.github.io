@@ -2,7 +2,7 @@
 layout: post
 title: "[Docker 입문 #5] Dockerfile 작성 기초"
 date: 2025-07-19 10:00:00 +0900
-categories: [Docker, DevOps]
+categories: [DevOps, Docker]
 tags: [docker, container, tutorial, series, dockerfile, docker-build, image-creation, beginner]
 mermaid: true
 ---

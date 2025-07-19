@@ -2,7 +2,7 @@
 layout: post
 title: "[Docker 입문 #4] Docker 이미지 이해하기"
 date: 2025-07-18 10:00:00 +0900
-categories: [Docker, DevOps]
+categories: [DevOps, Docker]
 tags: [docker, container, tutorial, series, docker-images, layers, registry, beginner]
 mermaid: true
 ---
