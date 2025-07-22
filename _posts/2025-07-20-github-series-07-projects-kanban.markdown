@@ -21,7 +21,7 @@ GitHub Projects는 프로젝트 관리를 위한 유연하고 맞춤형 도구�
 - **인사이트**: 차트와 분석 기능
 - **통합**: Issues, PR과 완벽한 통합
 
-## 2. Project 생성하기
+## 2. Project 생성하기 (2025년 최신)
 
 ### 새 프로젝트 만들기
 
@@ -37,6 +37,8 @@ GitHub Projects는 프로젝트 관리를 위한 유연하고 맞춤형 도구�
 - Feature planning: 기능 개발 계획
 - Bug tracker: 버그 추적
 - Roadmap: 로드맵 관리
+- Kanban: 기본 칸반 보드
+- Team retrospective: 회고 관리 (2025년 최신)
 ```
 
 ### 프로젝트 설정
@@ -51,6 +53,15 @@ README: 프로젝트 가이드라인 작성
 ```
 
 ## 3. Views (뷰) 활용하기
+
+### 뷰 타입별 특징 (2025년 최신)
+
+| 뷰 타입 | 용도 | 주요 기능 | 새로운 기능 |
+|---------|------|----------|-------------|
+| Table | 데이터 관리 | 정렬, 필터, 그룹화 | 열 고정, 일괄 편집 |
+| Board | 워크플로우 시각화 | 드래그 앤 드롭 | 스윔레인, WIP 제한 |
+| Roadmap | 일정 관리 | 타임라인 뷰 | 의존성 표시 |
+| Timeline | 간트 차트 | 기간 설정 | 마일스톤 연결 |
 
 ### Table View (테이블 뷰)
 
@@ -96,6 +107,22 @@ Feature C                 ████████████████
 
 ## 4. Custom Fields (커스텀 필드)
 
+### 2025년 신규 필드 타입
+
+```yaml
+Checkbox: 체크박스 (2025년 최신)
+  type: checkbox
+  description: 작업 완료 여부 체크
+
+Formula: 계산 필드 (2025년 최신)
+  type: formula
+  expression: "story_points * complexity"
+  
+User: GitHub 사용자 선택 (2025년 최신)
+  type: user
+  multiple: true
+```
+
 ### 필드 타입
 
 ```yaml
@@ -131,7 +158,49 @@ Review Status:
   options: [Pending, In Review, Approved, Changes Requested]
 ```
 
-## 5. 워크플로우 자동화
+## 5. 워크플로우 자동화 (2025년 강화)
+
+### GraphQL API 활용
+
+```javascript
+// 2025년 최신 GraphQL API 사용
+const { graphql } = require('@octokit/graphql');
+
+const updateProjectItem = async (itemId, fieldId, value) => {
+  const mutation = `
+    mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!, $value: ProjectV2FieldValue!) {
+      updateProjectV2ItemFieldValue(
+        input: {
+          projectId: $projectId
+          itemId: $itemId
+          fieldId: $fieldId
+          value: $value
+        }
+      ) {
+        projectV2Item {
+          id
+          content {
+            ... on Issue {
+              title
+              number
+            }
+          }
+        }
+      }
+    }
+  `;
+  
+  return await graphql(mutation, {
+    projectId: process.env.PROJECT_ID,
+    itemId,
+    fieldId,
+    value,
+    headers: {
+      authorization: `token ${process.env.GITHUB_TOKEN}`
+    }
+  });
+};
+```
 
 ### 기본 자동화
 
@@ -191,6 +260,20 @@ jobs:
 
 ## 6. 프로젝트 관리 전략
 
+### AI 기반 자동화 (2025년 최신)
+
+```mermaid
+graph TD
+    A[Issue 생성] --> B[AI 분석]
+    B --> C[자동 라벨링]
+    B --> D[우선순위 제안]
+    B --> E[스토리 포인트 추정]
+    C --> F[프로젝트 자동 할당]
+    D --> F
+    E --> F
+    F --> G[담당자 추천]
+```
+
 ### 스프린트 기반 관리
 
 ```yaml
@@ -226,6 +309,25 @@ Flow Rules:
 
 ## 7. 필터와 그룹화
 
+### 고급 필터 문법 (2025년 최신)
+
+```sql
+# AI 추천 작업
+label:"ai-suggested" assignee:@me
+
+# 멘션된 작업
+mentions:@me -author:@me
+
+# 리뷰 요청 받은 PR
+is:pr review-requested:@me
+
+# 특정 날짜 범위
+created:2025-01-01..2025-01-31
+
+# 복합 조건
+(label:bug OR label:critical) AND milestone:"v2.0"
+```
+
 ### 필터링 예시
 
 ```sql
@@ -253,7 +355,33 @@ Group by:
   - Repository: 저장소별 그룹
 ```
 
-## 8. Insights와 분석
+## 8. Insights와 분석 (2025년 강화)
+
+### 새로운 차트 타입
+
+```mermaid
+graph LR
+    A[데이터 수집] --> B[AI 분석]
+    B --> C[예측 모델]
+    C --> D[번다운 예측]
+    C --> E[리소스 최적화]
+    C --> F[병목 지점 발견]
+    
+    G[실시간 대시보드]
+    D --> G
+    E --> G
+    F --> G
+```
+
+### 예측 분석 기능
+
+```yaml
+예측 메트릭:
+  - 예상 완료일: AI 기반 예측
+  - 리스크 스코어: 지연 가능성 평가
+  - 팀 부하 지수: 작업 분배 최적화
+  - 품질 예측: 버그 발생 가능성
+```
 
 ### 번다운 차트
 
@@ -291,6 +419,22 @@ Points Completed
 ```
 
 ## 9. 팀 협업 시나리오
+
+### GitHub Copilot 통합 (2025년 최신)
+
+```yaml
+Copilot for Projects:
+  자동 생성:
+    - 작업 설명 개선
+    - 체크리스트 생성
+    - 관련 이슈 연결
+    - 시간 추정
+  
+  스마트 제안:
+    - 유사 작업 찾기
+    - 해결 방법 제안
+    - 코드 스니펫 연결
+```
 
 ### 시나리오 1: 스프린트 플래닝
 
@@ -393,6 +537,15 @@ automation:
 
 ## 11. 모범 사례
 
+### 2025년 권장 사항
+
+| 영역 | 기존 방식 | 2025년 권장 방식 |
+|------|-----------|------------------|
+| 자동화 | 수동 워크플로우 | AI 기반 자동화 |
+| 추정 | 팀 회의 | ML 모델 예측 + 검증 |
+| 리뷰 | 정기 회의 | 실시간 대시보드 |
+| 할당 | 수동 지정 | 스킬 기반 자동 매칭 |
+
 ### 프로젝트 구조화
 
 ```yaml
@@ -437,7 +590,7 @@ automation:
 
 ## 마무리
 
-GitHub Projects는 단순한 작업 관리를 넘어 팀의 전체적인 개발 프로세스를 시각화하고 최적화할 수 있는 강력한 도구입니다. 
+GitHub Projects는 단순한 작업 관리를 넘어 팀의 전체적인 개발 프로세스를 시각화하고 최적화할 수 있는 강력한 도구입니다. 2025년 최신 업데이트로 AI 기반 자동화와 예측 분석이 추가되어 더욱 스마트한 프로젝트 관리가 가능해졌습니다. 
 
 핵심은:
 - 팀에 맞는 워크플로우 설계
