@@ -9,7 +9,7 @@ mermaid: true
 
 ## 창작의 동반자, Claude
 
-Claude는 단순한 질문-답변 도구를 넘어 강력한 창작 파트너가 될 수 있습니다. 특히 Claude 4 시리즈와 Extended Thinking 기능은 더욱 깊이 있는 창작 활동을 가능하게 합니다.
+Claude는 단순한 질문-답변 도구를 넘어 강력한 창작 파트너가 될 수 있습니다. 특히 Claude 4 시리즈와 Extended Thinking 기능, 그리고 새로운 Claude Code 도구를 활용하면 더욱 깊이 있는 창작 활동을 가능하게 합니다.
 
 ## Claude의 창작 지원 능력
 
@@ -19,6 +19,8 @@ Claude는 단순한 질문-답변 도구를 넘어 강력한 창작 파트너가
 3. **다양한 장르**: 소설, 시, 에세이, 블로그, 대본 등 모든 형식
 4. **협업적 접근**: 아이디어를 함께 발전시키는 파트너
 5. **Extended Thinking**: 복잡한 플롯이나 구조를 심층 분석
+6. **대화 재개 기능**: `claude --continue` 명령으로 이전 창작 세션 이어가기
+7. **자동 압축**: 무한한 대화 길이를 지원하는 자동 대화 압축 기능
 
 ### 창작 프로세스 흐름도
 
@@ -33,6 +35,14 @@ graph TD
     C --> G[Claude: 초안 생성]
     D --> H[Claude: 개선점 제안]
     E --> I[Claude: 문체 다듬기]
+    
+    J[Claude Code CLI] --> K[파일 관리]
+    J --> L[버전 관리]
+    J --> M[대화 재개]
+    
+    K --> C
+    L --> D
+    M --> B
 ```
 
 ## 글쓰기 활용법
@@ -133,12 +143,12 @@ Extended Thinking 모드를 사용해서 다음 요소로
 
 ### 콘텐츠 캘린더 예시
 
-| 주차 | 날짜 | 주제 | 형식 | 키워드 |
-|------|------|------|------|--------|
-| 1주 | 7/22 | Claude API 시작하기 | 튜토리얼 | Claude, API, Python |
-| 1주 | 7/25 | AI 툴 생산성 비교 | 리뷰 | AI tools, productivity |
-| 2주 | 7/29 | 프롬프트 엔지니어링 고급 | 가이드 | prompt, advanced |
-| 2주 | 8/1 | AI 컨퍼런스 프리뷰 | 뉴스 | conference, trends |
+| 주차 | 날짜 | 주제 | 형식 | 키워드 | 도구 활용 |
+|------|------|------|------|---------|----------|
+| 1주 | 7/22 | Claude API 시작하기 | 튜토리얼 | Claude, API, Python | Python SDK 설치: `pip install claude-code-sdk` |
+| 1주 | 7/25 | AI 툴 생산성 비교 | 리뷰 | AI tools, productivity | Claude Code CLI 활용 |
+| 2주 | 7/29 | 프롬프트 엔지니어링 고급 | 가이드 | prompt, advanced | Extended Thinking 모드 |
+| 2주 | 8/1 | AI 컨퍼런스 프리뷰 | 뉴스 | conference, trends | 최신 릴리즈 노트: `/release-notes` |
 
 ### 2. 시리즈 기획
 
@@ -213,6 +223,24 @@ Claude: [추가 아이디어]
 
 ## 창작 도구 활용
 
+### Claude Code CLI 활용
+
+창작 작업을 더욱 효율적으로 만들어주는 Claude Code CLI의 주요 기능들:
+
+```bash
+# Claude Code 전역 설치
+npm install -g @anthropic-ai/claude-code
+
+# 이전 창작 세션 재개
+claude --continue
+
+# 자동 대화 압축 설정
+/config
+
+# 출력을 JSON 형식으로 저장
+claude -p --output-format=stream-json > my_story.json
+```
+
 ### 1. 캐릭터 일관성 체크
 
 ```
@@ -237,6 +265,15 @@ graph LR
     C --> G[Claude: 연대기 작성]
     D --> H[Claude: 시스템 구축]
     E --> I[Claude: 갈등 구조]
+    
+    J[Claude Code] --> K[파일로 저장]
+    J --> L[버전 관리]
+    J --> M[협업 지원]
+    
+    F --> K
+    G --> K
+    H --> K
+    I --> K
 ```
 
 ## 실전 창작 프로젝트
@@ -275,12 +312,16 @@ graph LR
 2. **단계별 접근**: 한 번에 완성하려 하지 말고 단계별로
 3. **피드백 루프**: 생성된 내용에 대한 구체적 피드백 제공
 4. **스타일 가이드**: 원하는 문체의 예시 제공
+5. **대화 재개**: `claude --continue` 또는 `claude --resume`로 이전 창작 세션 이어가기
+6. **출력 형식 선택**: JSON 스트림 출력 지원 `claude -p --output-format=stream-json`
+7. **Vim 모드**: 텍스트 편집 시 `/vim` 명령으로 Vim 키바인딩 활성화
 
 ### 주의사항
 1. **독창성 확보**: Claude의 제안을 그대로 쓰지 말고 자신만의 색 추가
 2. **팩트 체크**: 특히 역사적 사실이나 기술 정보는 검증 필요
 3. **저작권 인식**: 생성된 콘텐츠의 저작권 관련 이슈 숙지
 4. **과도한 의존 주의**: 도구로 활용하되, 창작의 주체는 자신
+5. **SDK 활용**: Python(`pip install claude-code-sdk`) 또는 TypeScript(`import @anthropic-ai/claude-code`) SDK로 프로그래밍 방식 통합 가능
 
 ## 다음 편 예고
 
