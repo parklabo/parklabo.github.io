@@ -231,13 +231,24 @@ docker volume create \
   --opt o=bind \
   my-local-volume
 
-# NFS 볼륨
+# NFS 볼륨 (NFSv4 예시)
+docker service create -d \
+  --name nfs-service \
+  --mount 'type=volume,source=nfsvolume,target=/app,volume-driver=local,volume-opt=type=nfs,volume-opt=device=:/var/docker-nfs,"volume-opt=o=addr=10.0.0.10,rw,nfsvers=4,async"' \
+  nginx:latest
+
+# CIFS/Samba 볼륨 (2025년 최신)
 docker volume create \
   --driver local \
-  --opt type=nfs \
-  --opt o=addr=192.168.1.100,rw \
-  --opt device=:/path/to/nfs/share \
-  nfs-volume
+  --opt type=cifs \
+  --opt device=//server.example.com/share \
+  --opt o=addr=server.example.com,username=user,password=pass,file_mode=0777,dir_mode=0777 \
+  cifs-volume
+
+# 블록 디바이스 마운트
+docker run \
+  --mount='type=volume,dst=/external-drive,volume-driver=local,volume-opt=device=/dev/loop5,volume-opt=type=ext4' \
+  ubuntu
 ```
 
 ## 실습: 개발 환경 구성
