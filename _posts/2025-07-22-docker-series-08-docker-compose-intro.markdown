@@ -28,8 +28,11 @@ Docker Desktop을 설치했다면 Docker Compose가 이미 포함되어 있습�
 # Docker Compose 버전 확인
 docker compose version
 
-# 또는 (구버전)
-docker-compose --version
+# 짧은 버전 표시 (2025년 최신)
+docker compose version --short
+
+# JSON 형식으로 출력
+docker compose version --format json
 ```
 
 ## 첫 번째 docker-compose.yml
@@ -150,6 +153,32 @@ docker compose down -v
 ```
 
 ## 주요 설정 옵션
+
+### 프로필 사용 (2025년 최신)
+
+```yaml
+services:
+  web:
+    image: nginx
+    profiles: ["frontend"]
+  
+  api:
+    image: myapp:latest
+    profiles: ["backend"]
+  
+  debug:
+    image: debug-tools
+    profiles: ["debug"]
+```
+
+특정 프로필만 실행:
+```bash
+# frontend 프로필만 실행
+docker compose --profile frontend up
+
+# 여러 프로필 동시 실행
+docker compose --profile frontend --profile debug up
+```
 
 ### 이미지와 빌드
 
@@ -416,6 +445,17 @@ docker compose unpause
 
 # 설정 검증
 docker compose config
+
+# 드라이 런 모드 (2025년 최신)
+# 실제 작업을 수행하지 않고 확인
+docker compose --dry-run up --build -d
+
+# 서비스 대기 (2025년 최신)
+# 서비스가 실행/헬스 상태가 될 때까지 대기
+docker compose up --wait --wait-timeout 300
+
+# Watch 모드로 파일 변경 감지 (2025년 최신)
+docker compose up --watch
 ```
 
 ### 실행 및 로그
@@ -427,8 +467,19 @@ docker compose exec backend npm test
 # 새 컨테이너에서 명령 실행
 docker compose run backend npm install
 
+# 서비스 포트로 명령 실행 (2025년 최신)
+# 서비스에 정의된 포트를 호스트에 매핑
+docker compose run --service-ports web python manage.py shell
+
 # 실시간 로그
 docker compose logs -f --tail=100
+
+# 타임스탬프 표시 (2025년 최신)
+docker compose logs --timestamps
+
+# 컨테이너 차듨 (2025년 최신)
+# 로그 제한을 위해 특정 서비스만 연결
+docker compose up --attach web --no-attach db
 ```
 
 ### 정리
@@ -442,6 +493,15 @@ docker compose rm
 
 # 전체 정리 (네트워크, 볼륨 포함)
 docker compose down --volumes --remove-orphans
+
+# 실행 중인 프로젝트 목록 (2025년 최신)
+docker compose ls
+
+# 모든 프로젝트 표시 (중지된 것 포함)
+docker compose ls --all
+
+# JSON 형식으로 출력
+docker compose ls --format json
 ```
 
 ## 실습: 마이크로서비스 아키텍처
@@ -511,6 +571,8 @@ services:
 3. **.env 파일**: 민감한 정보는 환경 변수로 관리
 4. **헬스체크**: 서비스 상태 모니터링 설정
 5. **리소스 제한**: CPU/메모리 제한 설정
+6. **프로필 활용**: 선택적 서비스 실행을 위한 프로필 사용
+7. **Watch 모드**: 개발 시 파일 변경 자동 감지
 
 ```yaml
 services:
@@ -527,6 +589,13 @@ services:
         limits:
           cpus: '0.5'
           memory: 512M
+    develop:            # Watch 모드 설정 (2025년 최신)
+      watch:
+        - action: rebuild
+          path: ./src
+        - action: sync
+          path: ./static
+          target: /app/static
 ```
 
 ## 마무리
