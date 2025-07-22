@@ -64,6 +64,34 @@ docker network create my-network
 # 생성한 네트워크에 컨테이너 연결
 docker run -d --network my-network --name web nginx
 docker run -d --network my-network --name db mysql:5.7
+
+# IPv6 지원 네트워크 생성 (2025년 최신)
+docker network create --ipv6 --subnet 2001:db8:1234::/64 my-ipv6-net
+
+# IPv6 전용 네트워크
+docker network create --ipv6 --ipv4=false v6net
+```
+
+### 5. Overlay
+
+Docker Swarm에서 사용하는 멀티 호스트 네트워크:
+
+```bash
+# Overlay 네트워크 생성
+docker network create -d overlay my-overlay
+
+# attachable 옵션으로 standalone 컨테이너도 연결 가능
+docker network create -d overlay --attachable my-attachable-overlay
+
+# 서비스에 연결
+docker service create \
+  --name my-nginx \
+  --network my-overlay \
+  --replicas 3 \
+  nginx
+
+# IPv6 오버레이 네트워크 지원 (2025년 최신)
+# IPv6 트랜스포트를 통한 오버레이 네트워크 구성 가능
 ```
 
 ## 네트워크 명령어
