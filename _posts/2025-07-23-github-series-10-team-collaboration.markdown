@@ -4,6 +4,7 @@ title: "[GitHub 입문 #10] Team 협업 설정: 권한 관리와 보호 규칙"
 date: 2025-07-23 10:00:00 +0900
 categories: [DevOps, GitHub]
 tags: [github, team, collaboration, permissions, security, tutorial, series]
+mermaid: true
 ---
 
 ## 들어가며

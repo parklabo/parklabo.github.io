@@ -4,6 +4,7 @@ title: "[GitHub 입문 #2] Repository 기초: 생성, 클론, README 작성법"
 date: 2025-07-15 10:00:00 +0900
 categories: [DevOps, GitHub]
 tags: [github, git, repository, readme, tutorial, series]
+mermaid: true
 ---
 
 ## 들어가며

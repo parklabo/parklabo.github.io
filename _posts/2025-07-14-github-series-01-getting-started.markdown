@@ -4,6 +4,7 @@ title: "[GitHub 입문 #1] GitHub 시작하기: 계정 생성부터 프로필 �
 date: 2025-07-14 22:00:00 +0900
 categories: [DevOps, GitHub]
 tags: [github, git, tutorial, series, beginner]
+mermaid: true
 ---
 
 ## 시리즈 소개
